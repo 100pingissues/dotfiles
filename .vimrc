@@ -80,6 +80,7 @@ nnoremap <S-tab> :bp<CR>
   let g:airline_section_z = "%p%% : \ue0a1:%l/%L: Col:%c"
   let g:airline#extensions#whitespace#enabled = 0
   let g:airline_section_b = '%{strftime("%c")}'
+  let g:bufferline_echo = 0
 set noshowmode
 set laststatus=2
 
@@ -89,6 +90,7 @@ set laststatus=2
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'preservim/nerdtree'
+    Plug 'bling/vim-bufferline'
 call plug#end()
 
 
