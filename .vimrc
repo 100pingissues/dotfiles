@@ -70,34 +70,25 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Remap switching between buffers to Tab and Shift-Tab
 nnoremap <tab> :bn<CR>
+nnoremap <S-tab> :bp<CR>
 
 
-" AIRLINE PLUGIN CONFIG --------------------------------------------------------------- {{{
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_section_b = '%{strftime("%c")}'
+" Airline Plugin Configuration
+  let g:airline_section_z = "%p%% : \ue0a1:%l/%L: Col:%c"
+  let g:airline#extensions#whitespace#enabled = 0
+  let g:airline_section_b = '%{strftime("%c")}'
+set noshowmode
 set laststatus=2
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.colnr = "\u33c7"
-
-
-" }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
 call plug#begin('~/.vim/plugged')
-
     Plug 'vim-airline/vim-airline'
     Plug 'preservim/nerdtree'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'bling/vim-bufferline'
-
 call plug#end()
 
 
