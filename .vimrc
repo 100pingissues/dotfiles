@@ -76,29 +76,25 @@ nnoremap <tab> :bn<CR>
 nnoremap <S-tab> :bp<CR>
 
 
-" Airline Plugin Configuration
+" Airline Plugin Configuration 
   let g:airline_section_z = "%p%% : \ue0a1:%l/%L: Col:%c"
   let g:airline#extensions#whitespace#enabled = 0
-  let g:airline_section_b = '%{strftime("%c")}'
+  let g:airline_section_b = '%{strftime("%A")}'
   let g:bufferline_echo = 0
+  let g:airline_powerline_fonts = 1
 set noshowmode
 set laststatus=2
 
-" PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
-    Plug 'preservim/nerdtree'
+    "Plug 'preservim/nerdtree'
     Plug 'bling/vim-bufferline'
 call plug#end()
 
 
-" }}}
-
-" MAPPINGS --------------------------------------------------------------- {{{
-
-" Set the backslash as the leader key.
+" MAPPINGS Set the backslash as the leader key.
 let mapleader = '\' 
 
 " Remapping Escape to jk
@@ -109,19 +105,11 @@ nnoremap <leader>\ :nohlsearch<CR>
 ,
 " }}}
 
-" VIMSCRIPT -------------------------------------------------------------- {{{
 
+" VIM SCRIPT "
 " This will enable code folding.
 " Use the marker method of folding.
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-
-" More Vimscripts code goes here.
-
-" }}}
-
-" STATUS LINE ------------------------------------------------------------ {{{
-
-" }}}
