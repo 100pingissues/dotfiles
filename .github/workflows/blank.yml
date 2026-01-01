@@ -1,0 +1,28 @@
+# Sample workflow to access AWS resources when workflow is tied to branch
+# The workflow creates a static website using Amazon S3
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+name: AWS example workflow
+on:
+  push
+# permission can be added at job level or workflow level
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+jobs:
+  S3PackageUpload:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS Credentials 1
+      id: creds
+      uses: aws-actions/configure-aws-credentials@v5.1.1
+      with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::195275643470:role/sts-lab-2-target
+          output-credentials: true
+    
+    - name: get caller identity 1
+      run: |
+        aws secretsmanager get-secret-value --secret-id flag_sts_lab_2
